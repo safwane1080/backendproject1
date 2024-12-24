@@ -44,6 +44,33 @@
                 <div id="users" class="mb-4">
                     <h2>User Management</h2>
                     <table class="table table-bordered">
+                    <form action="{{ route('users.store') }}" method="POST" class="mb-3">
+        @csrf
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="Name" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+        </div>
+        <div class="mb-3">
+            <label for="password_confirmation" class="form-label">Confirm Password</label>
+            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="Confirm Password" required>
+        </div>
+        <div class="mb-3">
+            <label for="usertype" class="form-label">User Type</label>
+            <select id="usertype" name="usertype" class="form-select">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Create User</button>
+    </form>
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -54,17 +81,30 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Bart Doe</td>
-                                <td>bart@example.com</td>
-                                <td>Admin</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary">Edit</button>
-                                    <button class="btn btn-sm btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                        </tbody>
+    @forelse($users ?? [] as $user)
+        <tr>
+            <td>{{ $user->id }}</td>
+            <td>{{ $user->name }}</td>
+            <td>{{ $user->email }}</td>
+            <td>{{ ucfirst($user->usertype) }}</td>
+            <td>
+                <form action="{{ route('updateRole') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="user_id" value="{{ $user->id }}">
+                    <select name="usertype" class="form-select" onchange="this.form.submit()">
+                        <option value="admin" {{ $user->usertype == 'admin' ? 'selected' : '' }}>Admin</option>
+                        <option value="user" {{ $user->usertype == 'user' ? 'selected' : '' }}>User</option>
+                    </select>
+                </form>
+            </td>
+        </tr>
+    @empty
+        <tr>
+            <td colspan="5">No users found.</td>
+        </tr>
+    @endforelse
+</tbody>
+
                     </table>
                 </div>
 
@@ -93,6 +133,7 @@
                         </tbody>
                     </table>
                 </div>
+                
 
                 <div id="faq" class="mb-4">
                     <h2>FAQ Management</h2>

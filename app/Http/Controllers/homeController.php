@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
+    
 class homeController extends Controller
 {
     public function index()
@@ -17,4 +19,8 @@ class homeController extends Controller
         return view('home.index');
     }
 
+    public function adminDashboard()
+    { $users = User::all(); 
+        
+        return view('admin.index', compact('users'));}
 }

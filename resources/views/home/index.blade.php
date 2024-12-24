@@ -157,7 +157,7 @@
 <div class="container about" id="about">
     <div class="row align-items-center">
         <div class="col-md-6">
-            <h2>About Us</h2>
+            <h2> About Us</h2>
             <p>Luxury Watches offers an exclusive selection of high-end timepieces, crafted for those who take time seriously. Our collection blends craftsmanship with innovative technology.</p>
             <p>We strive to provide the ultimate experience for watch enthusiasts. From classic to modern, we have a timepiece for every style.</p>
         </div>

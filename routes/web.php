@@ -4,8 +4,10 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
-route::get('/', [HomeController::class,'home']);
+
+Route::get('/', [HomeController::class,'home']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -20,4 +22,8 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-route::get('admin/dashboard', [HomeController::class,'index'])->middleware(['auth', 'admin']);
+Route::get('admin/dashboard', [HomeController::class, 'adminDashboard'])->middleware(['auth', 'admin'])->name('admin.dashboard');
+Route::post('/update-role', [UserController::class, 'updateRole'])->name('updateRole')->middleware('auth');
+Route::post('/users', [UserController::class, 'store'])->name('users.store');
+Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
