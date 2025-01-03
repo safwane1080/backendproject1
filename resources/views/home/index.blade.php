@@ -233,6 +233,55 @@
         </div>
     </div>
 </div>
+<!-- Navigatiebalk -->
+<li class="nav-item">
+    <a class="nav-link" href="#faq">FAQ</a>
+</li>
+<div class="container" id="faq">
+    <div class="text-center mb-5">
+        <h2>Frequently Asked Questions</h2>
+        <p>Find answers to common questions about our watches and services.</p>
+    </div>
+    <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeadingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseOne" aria-expanded="true" aria-controls="faqCollapseOne">
+                    What is the warranty period for your watches?
+                </button>
+            </h2>
+            <div id="faqCollapseOne" class="accordion-collapse collapse show" aria-labelledby="faqHeadingOne" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    All our watches come with a 2-year international warranty covering manufacturing defects.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeadingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
+                    Do you offer worldwide shipping?
+                </button>
+            </h2>
+            <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Yes, we provide worldwide shipping. Shipping costs and delivery times depend on your location.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeadingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
+                    Can I return a watch if I am not satisfied?
+                </button>
+            </h2>
+            <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Returns are accepted within 30 days of purchase, provided the watch is unworn and in its original packaging.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="cta">
     <h2>Become an Insider!</h2>
