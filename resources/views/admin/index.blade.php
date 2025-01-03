@@ -36,7 +36,6 @@
                 <div class="list-group">
                     <a href="#users" class="list-group-item list-group-item-action">User Management</a>
                     <a href="#news" class="list-group-item list-group-item-action">News Management</a>
-                    <a href="#faq" class="list-group-item list-group-item-action">FAQ Management</a>
                     <a href="#contacts" class="list-group-item list-group-item-action">Contact Messages</a>
                 </div>
             </div>
@@ -135,32 +134,7 @@
                 </div>
                 
 
-                <div id="faq" class="mb-4">
-                    <h2>FAQ Management</h2>
-                    <button class="btn btn-success mb-2">Add New Category</button>
-                    <button class="btn btn-success mb-2">Add New Question</button>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Question</th>
-                                <th>Category</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>How do I create an account?</td>
-                                <td>Accounts</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary">Edit</button>
-                                    <button class="btn btn-sm btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                
 
                 <div id="contacts" class="mb-4">
                     <h2>Contact Messages</h2>

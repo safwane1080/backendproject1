@@ -214,18 +214,19 @@
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
             <div class="card p-4 shadow-sm">
-                <form>
+                <form action="{{ route('contact.store') }}" method="POST">
+                    @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Full Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
                     </div>
                     <div class="mb-3">
                         <label for="message" class="form-label">Message</label>
-                        <textarea class="form-control" id="message" rows="4" placeholder="Enter your message"></textarea>
+                        <textarea class="form-control" id="message" name="message" rows="4" placeholder="Enter your message" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-dark w-100">Submit</button>
                 </form>
@@ -233,6 +234,7 @@
         </div>
     </div>
 </div>
+
 <!-- Navigatiebalk -->
 <li class="nav-item">
     <a class="nav-link" href="#faq">FAQ</a>
@@ -281,6 +283,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 <div class="cta">
