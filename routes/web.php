@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\{HomeController, UserController, FAQController, ContactController, ProfileController};
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 // Algemene routes
 Route::get('/', [HomeController::class, 'home']);
@@ -54,3 +55,9 @@ Route::middleware('auth')->group(function () {
     Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
 });
 Route::get('profile', [ProfileController::class, 'showProfile'])->middleware('auth');
+
+
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/'); 
+})->name('logout');
