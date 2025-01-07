@@ -3,6 +3,8 @@
 use App\Http\Controllers\{HomeController, UserController, FAQController, ContactController, ProfileController};
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+
 
 // Algemene routes
 Route::get('/', [HomeController::class, 'home']);
@@ -61,3 +63,14 @@ Route::post('/logout', function () {
     Auth::logout();
     return redirect('/'); 
 })->name('logout');
+
+Route::post('/profile/update', function (Request $request) {
+    // Controleer of er een bestand is geüpload
+    if ($request->hasFile('profile_image')) {
+        // Sla het bestand op in de public map
+        $request->file('profile_image')->store('public/profile_images');
+    }
+    
+    // Verder verwerken van de gegevens (bijvoorbeeld opslaan in de database)
+    return redirect()->back()->with('success', 'Profiel bijgewerkt!');
+});

@@ -73,6 +73,14 @@ form button:hover {
     border-radius: 4px;
     text-align: center;
 }
+
+.profile-image {
+    width: 150px;
+    height: 150px; 
+    object-fit: cover; 
+    border-radius: 50%;
+}
+
 </style>
 
 <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
@@ -97,6 +105,12 @@ form button:hover {
     <div>
         <label for="profile_image">Profile Image</label>
         <input type="file" name="profile_image" id="profile_image">
+
+        @if ($user->profile_image)
+        <img src="{{ asset('storage/' . $user->profile_image) }}" alt="Profielfoto" class="profile-image">
+        @else
+    <p>Geen profielfoto geüpload.</p>
+@endif
     </div>
 
     <button type="submit">Update Profile</button>
