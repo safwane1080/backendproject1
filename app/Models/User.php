@@ -18,12 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'phone',
-        'address',
-
-        'password',
+        'name','email','phone','address','password','username', 'birthday', 'about', 'profile_image',
     ];
 
     /**
@@ -48,4 +43,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function profile()
+{
+    return $this->hasOne(Profile::class);
+}
+
 }

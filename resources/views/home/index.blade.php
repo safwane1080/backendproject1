@@ -122,6 +122,7 @@
             background-color: #495057;
             cursor: pointer;
         }
+        
     </style>
 </head>
 <body>
@@ -144,9 +145,16 @@
             <a class="nav-link" href="/login">Login</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/register">Register
+            <a class="nav-link" href="/register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ route('profile.edit') }}" class="nav-link btn btn-primary">
+                Mijn Profiel
+            </a>
+        </li>
     </ul>
 </nav>
+
 
 <div class="hero">
     <h1>Luxury Watches</h1>
