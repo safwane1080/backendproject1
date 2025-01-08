@@ -4,6 +4,10 @@ use App\Http\Controllers\{HomeController, UserController, FAQController, Contact
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Controllers\NewsController;
+use App\Models\News;
+
+
 
 
 // Algemene routes
@@ -47,6 +51,12 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/contacts', [ContactController::class, 'index'])->name('admin.contacts.index');
     Route::post('/contacts/{contact}/reply', [ContactController::class, 'reply'])->name('admin.contacts.reply');
+    Route::get('/news', [NewsController::class, 'index'])->name('admin.news.index');
+Route::get('/news/create', [NewsController::class, 'create'])->name('admin.news.create');
+Route::post('/news', [NewsController::class, 'store'])->name('admin.news.store');
+Route::get('/news/{news}/edit', [NewsController::class, 'edit'])->name('admin.news.edit');
+Route::put('/news/{news}', [NewsController::class, 'update'])->name('admin.news.update');
+Route::delete('/news/{news}', [NewsController::class, 'destroy'])->name('admin.news.destroy');
 });
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -74,3 +84,22 @@ Route::post('/profile/update', function (Request $request) {
     // Verder verwerken van de gegevens (bijvoorbeeld opslaan in de database)
     return redirect()->back()->with('success', 'Profiel bijgewerkt!');
 });
+
+
+Route::get('/news', [NewsController::class, 'showNewsList'])->name('news.index');
+Route::get('/news/{news}', [NewsController::class, 'showNewsDetail'])->name('news.show');
+Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
+
+Route::prefix('admin')->middleware('auth', 'admin')->group(function () {
+    Route::get('/news', [NewsController::class, 'adminIndex'])->name('admin.news.index');
+    Route::get('/news/create', [NewsController::class, 'create'])->name('admin.news.create');
+    Route::post('/news', [NewsController::class, 'store'])->name('admin.news.store');
+    Route::put('/news/{id}', [NewsController::class, 'update'])->name('admin.news.update');
+    Route::delete('/news/{id}', [NewsController::class, 'destroy'])->name('admin.news.destroy');
+});
+Route::resource('news', NewsController::class);
+Route::get('/admin/news/{id}/edit', [NewsController::class, 'edit'])->name('admin.news.edit');
+Route::delete('/admin/news/{id}', [NewsController::class, 'destroy'])->name('admin.news.destroy');
+Route::get('/admin/news/{news}/edit', [NewsController::class, 'edit'])->name('admin.news.edit');
+Route::put('/admin/news/{news}', [NewsController::class, 'update'])->name('admin.news.update');
+Route::get('/admin/news/{news}/edit', [NewsController::class, 'edit'])->name('news.edit');

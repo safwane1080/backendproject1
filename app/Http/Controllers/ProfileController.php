@@ -19,14 +19,11 @@ class ProfileController extends Controller
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): View
-    {
-       $user = Auth::user();
-       if ($user->birthday) {
-        $user->birthday = Carbon::parse($user->birthday);
-    }
-        return view('profile.edit', compact('user'));
-    }
+    public function edit(News $news)
+{
+    return view('admin.news.edit', compact('news'));
+}
+
 
     /**
      * Update the user's profile information.
