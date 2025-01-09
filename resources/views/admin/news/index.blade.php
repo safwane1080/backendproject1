@@ -61,6 +61,8 @@
                         <h3 class="mb-3">{{ $item->title }}</h3>
                         <p class="mb-4">{{ Str::limit($item->content, 100, '...') }}</p>
                         <p><small>Gepubliceerd op: {{ $item->created_at->format('d-m-Y') }}</small></p>
+                        <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" class="img-fluid mb-3" style="max-height: 150px; object-fit: cover;">
+
                         @if(auth()->user() && auth()->user()->usertype === 'admin')
                             <div class="d-flex justify-content-between mt-3">
                                 <a href="{{ route('admin.news.edit', $item->id) }}" class="btn btn-admin btn-sm">Bewerken</a>
@@ -75,6 +77,8 @@
                 </div>
             @endforeach
         </div>
+
+        
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

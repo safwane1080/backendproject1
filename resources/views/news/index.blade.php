@@ -15,12 +15,25 @@
                     <h3>{{ $item->title }}</h3>
                     <p>{{ $item->content }}</p>
                     <p><small>Gepubliceerd op: {{ $item->created_at->format('d-m-Y') }}</small></p>
+                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" class="img-fluid mb-3" style="max-height: 200px; object-fit: cover;">
 
                     @foreach($news as $item)
     <div class="news-item mb-4">
         <h3>{{ $item->title }}</h3>
         <p>{{ $item->content }}</p>
         <p><small>Gepubliceerd op: {{ $item->created_at->format('d-m-Y') }}</small></p>
+        <div class="row">
+    @foreach($news as $item)
+        <div class="col-md-4">
+            <div class="news-item mb-4">
+                <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" class="img-fluid mb-3" style="max-height: 200px; object-fit: cover;">
+                <h3>{{ $item->title }}</h3>
+                <p>{{ Str::limit($item->content, 100, '...') }}</p>
+                <a href="{{ route('news.show', $item->id) }}" class="btn btn-primary">Lees meer</a>
+            </div>
+        </div>
+    @endforeach
+</div>
 
         </div>
     </div>
