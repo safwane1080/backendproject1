@@ -1,25 +1,29 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nieuws - Luxury Watches</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Laatste Nieuwtjes</h2>
+        <div class="row">
+            @foreach($news as $item)
+                <div class="news-item mb-4">
+                    <h3>{{ $item->title }}</h3>
+                    <p>{{ $item->content }}</p>
+                    <p><small>Gepubliceerd op: {{ $item->created_at->format('d-m-Y') }}</small></p>
 
-@section('content')
-    <div class="container">
-        <h1>Laatste nieuws</h1>
-        
-        @if ($news->isEmpty())
-            <p>Er is momenteel geen nieuws beschikbaar.</p>
-        @else
-            <ul>
-                @foreach ($news as $item)
-                    <li>
-                        <a href="{{ route('news.show', $item->id) }}">{{ $item->title }}</a> 
-                        <span>{{ $item->created_at->format('d-m-Y') }}</span>
-                    </li>
-                @endforeach
-            </ul>
-            <ul>
-    @foreach ($newsItems as $news)
-        <li>{{ $news->title }} - {{ $news->publication_date }}</li>
-    @endforeach
-</ul>
-        @endif
+                    @foreach($news as $item)
+    <div class="news-item mb-4">
+        <h3>{{ $item->title }}</h3>
+        <p>{{ $item->content }}</p>
+        <p><small>Gepubliceerd op: {{ $item->created_at->format('d-m-Y') }}</small></p>
+
+        </div>
     </div>
-@endsection
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -19,11 +19,19 @@ class ProfileController extends Controller
     /**
      * Display the user's profile form.
      */
-    public function edit(News $news)
-{
-    return view('admin.news.edit', compact('news'));
-}
 
+     public function edit()
+     {
+         $user = auth()->user();
+     
+         if (!$user) {
+             return redirect()->route('login')->with('error', 'Je moet ingelogd zijn om je profiel te bewerken.');
+         }
+     
+         return view('profile.edit', compact('user'));
+     }
+     
+     
 
     /**
      * Update the user's profile information.
@@ -42,10 +50,11 @@ class ProfileController extends Controller
     $user->birthday = $validated['birthday'] ?? $user->birthday;
     $user->about = $validated['about'] ?? $user->about;
 
-    if ($request->hasFile('profile_image')) {
-        $imagePath = $request->file('profile_image')->store('profile_images', 'public');
-        $user->profile_image = $imagePath;
+    if ($request->hasFile('image')) {
+        $imagePath = $request->file('image')->store('news_images', 'public');
+        $news->image = $imagePath;
     }
+    
 
     $user->save();
 

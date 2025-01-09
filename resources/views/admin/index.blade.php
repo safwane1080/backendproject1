@@ -28,6 +28,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/admin/contacts') }}">Contact Panel</a>
                 </li>  
+
+                <li class="nav-item">
+                <a class="nav-link" href="{{ url('/admin/news') }}" class="btn btn-primary">Manage All News</a>
+                <li>
+
                 <li class="nav-item">
                     <form action="{{ route('logout') }}" method="POST" class="nav-item">
                         @csrf
@@ -48,8 +53,6 @@
 
                 <div class="list-group">
                     <a href="#users" class="list-group-item list-group-item-action">User Management</a>
-                    <a href="#news" class="list-group-item list-group-item-action">News Management</a>
-                    <a href="#contacts" class="list-group-item list-group-item-action">Contact Messages</a>
                 </div>
             </div>
             <div class="col-md-9">
@@ -119,67 +122,9 @@
 
                     </table>
                 </div>
-
-                <div id="news" class="mb-4">
-                    <h2>News Management</h2>
-                    <button class="btn btn-success mb-2">Add New News Item</button>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Title</th>
-                                <th>Publication Date</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Welcome to the website!</td>
-                                <td>2024-12-16</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary">Edit</button>
-                                    <button class="btn btn-sm btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
+            
 
                 
-
-                <div id="contacts" class="mb-4">
-                    <h2>Contact Messages</h2>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Message</th>
-                                <th>Date</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>First Last</td>
-                                <td>name@example.com</td>
-                                <td>I have a question about...</td>
-                                <td>2024-12-16</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary">View</button>
-                                    <button class="btn btn-sm btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

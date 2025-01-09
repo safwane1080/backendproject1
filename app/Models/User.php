@@ -48,5 +48,14 @@ class User extends Authenticatable
 {
     return $this->hasOne(Profile::class);
 }
+protected $casts = [
+    'is_admin' => 'boolean',
+];
+public function isAdmin()
+{
+    return $this->is_admin === true; 
+}
+
+
 
 }

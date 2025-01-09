@@ -59,6 +59,16 @@
         .form-container button:hover {
             background-color: #0056b3;
         }
+
+        .image-preview {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 
     <div class="form-container">
@@ -90,6 +100,13 @@
                     <div class="error">{{ $message }}</div>
                 @enderror
             </div>
+
+            @isset($news->image)
+                <div class="image-preview">
+                    <h3>Huidige Afbeelding:</h3>
+                    <img src="{{ asset('storage/' . $news->image) }}" alt="Nieuwsafbeelding" class="img-fluid">
+                    </div>
+            @endisset
 
             <div>
                 <label for="publication_date">Publicatiedatum</label>

@@ -103,3 +103,20 @@ Route::delete('/admin/news/{id}', [NewsController::class, 'destroy'])->name('adm
 Route::get('/admin/news/{news}/edit', [NewsController::class, 'edit'])->name('admin.news.edit');
 Route::put('/admin/news/{news}', [NewsController::class, 'update'])->name('admin.news.update');
 Route::get('/admin/news/{news}/edit', [NewsController::class, 'edit'])->name('news.edit');
+
+// Publieke routes voor nieuws
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::get('/news/{news}', [NewsController::class, 'show'])->name('news.show');
+
+// Admin routes voor nieuwsbeheer
+Route::middleware(['auth', 'admin'])->prefix('admin/news')->group(function () {
+    Route::get('/news', [NewsController::class, 'index'])->name('admin.news.index');
+    Route::get('/news/create', [NewsController::class, 'create'])->name('admin.news.create');
+    Route::post('/news', [NewsController::class, 'store'])->name('admin.news.store');
+    Route::get('/news/{news}/edit', [NewsController::class, 'edit'])->name('admin.news.edit');
+    Route::put('/news/{news}', [NewsController::class, 'update'])->name('admin.news.update');
+    Route::delete('/news/{news}', [NewsController::class, 'destroy'])->name('admin.news.destroy');
+});
+
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+

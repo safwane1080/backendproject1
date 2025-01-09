@@ -148,6 +148,10 @@
             <a class="nav-link" href="/register">Register</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="/news">Laatste Nieuwtjes</a>
+        </li>
+
+        <li class="nav-item">
             <a href="{{ route('profile.edit') }}" class="nav-link btn btn-primary">
                 Mijn Profiel
             </a>
