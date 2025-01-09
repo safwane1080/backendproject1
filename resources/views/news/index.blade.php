@@ -10,6 +10,7 @@
     <div class="container py-5">
         <h2 class="text-center mb-4">Latest News</h2>
         <div class="row">
+            
             @foreach($news as $item)
                 <div class="news-item mb-4">
                     <h3>{{ $item->title }}</h3>
@@ -29,7 +30,7 @@
                 <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" class="img-fluid mb-3" style="max-height: 200px; object-fit: cover;">
                 <h3>{{ $item->title }}</h3>
                 <p>{{ Str::limit($item->content, 100, '...') }}</p>
-                <a href="{{ route('news.show', $item->id) }}" class="btn btn-primary">Lees meer</a>
+                <a href="{{ route('news.show', $item->id) }}" class="btn btn-primary">Read more</a>
             </div>
         </div>
     @endforeach

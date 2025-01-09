@@ -122,7 +122,9 @@
 @section('content')
     <div class="container">
         <h1>Frequently Asked Questions</h1>
-
+        <div class="mt-4">
+    <a href="{{ url('/admin/dashboard') }}" class="btn btn-primary">Back to Dashboard</a>
+</div>
         <!-- Add FAQ Button -->
         <a href="{{ route('admin.faq.create') }}" class="btn btn-primary mb-3">Add FAQ</a>
 

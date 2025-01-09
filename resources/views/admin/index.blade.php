@@ -30,6 +30,9 @@
                 <li class="nav-item">
                 <a class="nav-link" href="{{ url('/admin/news') }}" class="btn btn-primary">Manage All News</a>
                 <li>
+                <li class="nav-item">
+                 <a class="nav-link" href="{{ url('/admin/suggested-questions') }}">Approve Suggested Questions</a>
+                </li>
 
                 <li class="nav-item">
                     <form action="{{ route('logout') }}" method="POST" class="nav-item">

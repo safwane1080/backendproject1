@@ -276,6 +276,35 @@
         @endforeach
     </div>
 </div>
+<div class="d-flex justify-content-center mt-5">
+    <form action="{{ route('suggested-faqs.store') }}" method="POST" class="card p-4 shadow-sm" style="width: 50%; max-width: 600px;">
+        @csrf
+        <div class="text-center mb-4">
+            <h4>Your Question</h4>
+        </div>
+        <div class="mb-3">
+            <textarea id="question" name="question" class="form-control" rows="3" placeholder="Enter your question here..." required style="resize: none;"></textarea>
+        </div>
+        <button type="submit" class="btn btn-dark w-100">Submit Question</button>
+    </form>
+</div>
+
+@if (session('success'))
+    <div class="alert alert-success mt-3 text-center" role="alert">
+        Your question has been submitted and is under review by an admin.
+    </div>
+@endif
+
+@if ($errors->any())
+    <div class="alert alert-danger mt-3 text-center" role="alert">
+        <ul class="mb-0">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 
 
 

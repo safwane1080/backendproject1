@@ -83,6 +83,8 @@
     @section('content')
     <div class="container">
         <h1 class="my-4 text-center">Contact Forms</h1>
+        <a href="{{ url('/admin/dashboard') }}" class="btn btn-success mb-3">Back to Dashboard</a>
+
         @foreach($contacts as $contact)
         <div class="contact-card">
             <h5>Message from: {{ $contact->name }}</h5>

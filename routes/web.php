@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\NewsController;
 use App\Models\News;
+use App\Http\Controllers\SuggestedFaqController;
 
 
 
@@ -121,4 +122,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin/news')->group(function () {
 });
 
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::post('/suggested-faqs', [SuggestedFaqController::class, 'store'])->name('suggested-faqs.store');
 
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('/suggested-questions', [SuggestedFaqController::class, 'index'])->name('admin.suggested-questions.index');
+    Route::post('/suggested-questions/{id}/update-status', [SuggestedFaqController::class, 'updateStatus'])->name('admin.suggested-questions.update-status');
+});

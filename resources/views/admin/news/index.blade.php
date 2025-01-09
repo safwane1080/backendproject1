@@ -49,9 +49,15 @@
         <h2 class="text-center mb-5">Latest News</h2>
         
         @if(auth()->user() && auth()->user()->usertype === 'admin')
+        <div class="d-flex justify-content-end mb-4">
+            <a href="{{ url('/admin/dashboard') }}" class="btn btn-success mb-3">Back to Dashboard</a>
+            </div>
             <div class="d-flex justify-content-end mb-4">
+        
                 <a href="{{ route('admin.news.create') }}" class="btn btn-create">New News Item</a>
             </div>
+            
+
         @endif
 
         <div class="row g-4">
