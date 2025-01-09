@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container py-5">
-        <h2 class="text-center mb-4">Laatste Nieuwtjes</h2>
+        <h2 class="text-center mb-4">Latest News</h2>
         <div class="row">
             @foreach($news as $item)
                 <div class="news-item mb-4">

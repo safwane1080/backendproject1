@@ -141,20 +141,21 @@
         <li class="nav-item">
             <a class="nav-link" href="#contact">Contact</a>
         </li>
+      
+        <li class="nav-item">
+            <a class="nav-link" href="/news">Latest News</a>
+        </li>
+
+        <li class="nav-item">
+            <a href="{{ route('profile.edit') }}" class="nav-link btn btn-primary">
+            My Profile
+            </a>
+        </li> 
         <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/register">Register</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/news">Laatste Nieuwtjes</a>
-        </li>
-
-        <li class="nav-item">
-            <a href="{{ route('profile.edit') }}" class="nav-link btn btn-primary">
-                Mijn Profiel
-            </a>
         </li>
     </ul>
 </nav>

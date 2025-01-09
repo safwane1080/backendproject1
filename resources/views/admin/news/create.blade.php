@@ -72,13 +72,13 @@
     </style>
 
     <div class="form-container">
-        <h1>Nieuw Nieuwsitem Toevoegen</h1>
+        <h1>Add New News Item</h1>
 
         <form action="{{ route('admin.news.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div>
-                <label for="title">Titel</label>
+                <label for="title">Title</label>
                 <input type="text" name="title" id="title" value="{{ old('title') }}" required>
                 @error('title')
                     <div class="error">{{ $message }}</div>
@@ -86,7 +86,7 @@
             </div>
 
             <div>
-                <label for="content">Inhoud</label>
+                <label for="content">Content</label>
                 <textarea name="content" id="content" required>{{ old('content') }}</textarea>
                 @error('content')
                     <div class="error">{{ $message }}</div>
@@ -94,7 +94,7 @@
             </div>
 
             <div>
-                <label for="image">Afbeelding</label>
+                <label for="image">Image</label>
                 <input type="file" name="image" id="image" required>
                 @error('image')
                     <div class="error">{{ $message }}</div>
@@ -103,20 +103,20 @@
 
             @isset($news->image)
                 <div class="image-preview">
-                    <h3>Huidige Afbeelding:</h3>
+                    <h3>Current Image:</h3>
                     <img src="{{ asset('storage/' . $news->image) }}" alt="Nieuwsafbeelding" class="img-fluid">
                     </div>
             @endisset
 
             <div>
-                <label for="publication_date">Publicatiedatum</label>
+                <label for="publication_date">Publication date</label>
                 <input type="date" name="publication_date" id="publication_date" value="{{ old('publication_date') }}" required>
                 @error('publication_date')
                     <div class="error">{{ $message }}</div>
                 @enderror
             </div>
 
-            <button type="submit">Opslaan</button>
+            <button type="submit">Save</button>
         </form>
     </div>
 @endsection

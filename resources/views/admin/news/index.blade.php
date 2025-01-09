@@ -46,11 +46,11 @@
 </head>
 <body>
     <div class="container py-5">
-        <h2 class="text-center mb-5">Laatste Nieuwtjes</h2>
+        <h2 class="text-center mb-5">Latest News</h2>
         
         @if(auth()->user() && auth()->user()->usertype === 'admin')
             <div class="d-flex justify-content-end mb-4">
-                <a href="{{ route('admin.news.create') }}" class="btn btn-create">Nieuw Nieuwsitem</a>
+                <a href="{{ route('admin.news.create') }}" class="btn btn-create">New News Item</a>
             </div>
         @endif
 
@@ -60,16 +60,16 @@
                     <div class="news-item p-4">
                         <h3 class="mb-3">{{ $item->title }}</h3>
                         <p class="mb-4">{{ Str::limit($item->content, 100, '...') }}</p>
-                        <p><small>Gepubliceerd op: {{ $item->created_at->format('d-m-Y') }}</small></p>
+                        <p><small>Published on: {{ $item->created_at->format('d-m-Y') }}</small></p>
                         <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" class="img-fluid mb-3" style="max-height: 150px; object-fit: cover;">
 
                         @if(auth()->user() && auth()->user()->usertype === 'admin')
                             <div class="d-flex justify-content-between mt-3">
-                                <a href="{{ route('admin.news.edit', $item->id) }}" class="btn btn-admin btn-sm">Bewerken</a>
-                                <form action="{{ route('admin.news.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Weet je zeker dat je dit nieuwsitem wilt verwijderen?')">
+                                <a href="{{ route('admin.news.edit', $item->id) }}" class="btn btn-admin btn-sm">Edit</a>
+                                <form action="{{ route('admin.news.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this news item?')">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm">Verwijderen</button>
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                 </form>
                             </div>
                         @endif

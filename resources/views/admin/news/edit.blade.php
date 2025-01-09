@@ -72,33 +72,33 @@
     </style>
 
     <div class="container">
-        <h1>Nieuwsitem Bewerken</h1>
+        <h1>News item Edit</h1>
 
         <form action="{{ route('admin.news.update', $news->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
             <div>
-                <label for="title">Titel</label>
+                <label for="title">Title</label>
                 <input type="text" name="title" id="title" value="{{ old('title', $news->title) }}" required>
             </div>
 
             <div>
-                <label for="content">Inhoud</label>
+                <label for="content">Content</label>
                 <textarea name="content" id="content" required>{{ old('content', $news->content) }}</textarea>
             </div>
 
             <div>
-                <label for="image">Afbeelding (optioneel)</label>
+                <label for="image">Image (optional)</label>
                 <input type="file" name="image" id="image">
             </div>
 
             <div>
-                <label for="publication_date">Publicatiedatum</label>
+                <label for="publication_date">Publication date</label>
                 <input type="date" name="publication_date" id="publication_date" value="{{ old('publication_date', $news->publication_date) }}" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Opslaan</button>
+            <button type="submit" class="btn btn-primary">Save</button>
         </form>
     </div>
 @endsection

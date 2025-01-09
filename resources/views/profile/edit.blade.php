@@ -110,7 +110,7 @@ form button:hover {
         @if ($user->profile_image)
         <img src="{{ asset('storage/' . $user->profile_image) }}" alt="Profielfoto" class="profile-image">
         @else
-    <p>Geen profielfoto geüpload.</p>
+    <p>No profile picture uploaded.</p>
 @endif
     </div>
 
