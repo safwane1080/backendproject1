@@ -12,6 +12,8 @@ use App\Models\News;
 
 // Algemene routes
 Route::get('/', [HomeController::class, 'home']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
