@@ -94,7 +94,8 @@ form button:hover {
 
     <div>
         <label for="birthday">Birthday</label>
-        <input type="date" name="birthday" id="birthday" value="{{ old('birthday', $user->birthday ? $user->birthday->format('Y-m-d') : '') }}">
+        <input type="date" name="birthday" id="birthday" 
+       value="{{ old('birthday', \Carbon\Carbon::parse($user->birthday)->format('Y-m-d') ?? '') }}">
     </div>
 
     <div>

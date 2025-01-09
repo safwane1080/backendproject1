@@ -18,9 +18,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Dashboard</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Profile</a>
-                </li>
+                
             
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/admin/faq') }}">FAQ Management</a>

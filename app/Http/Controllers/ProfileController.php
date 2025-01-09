@@ -37,29 +37,34 @@ class ProfileController extends Controller
      * Update the user's profile information.
      */
     public function update(Request $request)
-{
-    $user = auth()->user(); 
-    $validated = $request->validate([
-        'username' => 'nullable|string|max:255',
-        'birthday' => 'nullable|date',
-        'about' => 'nullable|string',
-        'profile_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', 
-    ]);
-
-    $user->username = $validated['username'] ?? $user->username;
-    $user->birthday = $validated['birthday'] ?? $user->birthday;
-    $user->about = $validated['about'] ?? $user->about;
-
-    if ($request->hasFile('image')) {
-        $imagePath = $request->file('image')->store('news_images', 'public');
-        $news->image = $imagePath;
+    {
+        $user = auth()->user(); 
+    
+        $validated = $request->validate([
+            'username' => 'nullable|string|max:255',
+            'birthday' => 'nullable|date',
+            'about' => 'nullable|string',
+            'profile_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+    
+        $user->username = $validated['username'] ?? $user->username;
+        $user->birthday = $validated['birthday'] ?? $user->birthday;
+        $user->about = $validated['about'] ?? $user->about;
+    
+        if ($request->hasFile('profile_image')) {
+            if ($user->profile_image) {
+                Storage::delete('public/' . $user->profile_image);
+            }
+    
+            $imagePath = $request->file('profile_image')->store('profiles', 'public');
+            $user->profile_image = $imagePath;
+        }
+    
+        $user->save();
+    
+        return redirect()->route('profile.edit')->with('success', 'Profiel succesvol bijgewerkt!');
     }
     
-
-    $user->save();
-
-    return redirect()->route('profile.edit')->with('success', 'Profiel succesvol bijgewerkt!');
-}
 
 
     /**
