@@ -122,6 +122,37 @@
             background-color: #495057;
             cursor: pointer;
         }
+        .about {
+    padding: 6rem 4rem; 
+    background-color: #f8f9fa;
+}
+
+.about .col-md-6 {
+    padding-left: 2.5rem; 
+    padding-right: 2.5rem; 
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem; 
+    color: #343a40;
+}
+
+.about p {
+    font-size: 1rem; 
+    line-height: 1.8; 
+    color: #495057;
+}
+.nav-tabs .nav-item:hover .nav-link {
+    background-color: #343a40; 
+    color: #fff; 
+    border-radius: 5px; 
+}
+
+.nav-tabs .nav-link {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
         
     </style>
 </head>
