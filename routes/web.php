@@ -128,3 +128,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/suggested-questions', [SuggestedFaqController::class, 'index'])->name('admin.suggested-questions.index');
     Route::post('/suggested-questions/{id}/update-status', [SuggestedFaqController::class, 'updateStatus'])->name('admin.suggested-questions.update-status');
 });
+
+use App\Http\Controllers\DashboardController;
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});

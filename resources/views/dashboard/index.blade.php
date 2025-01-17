@@ -185,12 +185,14 @@
             </a>
         </li> 
         <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/register">Register</a>
-        </li>
-        
+                    <form action="{{ route('logout') }}" method="POST" class="nav-item">
+                        @csrf
+                        <button type="submit" class="nav-link btn btn-dark">
+                            Logout
+                        </button>
+                    </form>
+                </li>
+       
     </ul>
 </nav>
 
@@ -284,31 +286,33 @@
 
 <!-- Navigatiebalk -->
 <div class="container" id="faq">
-    <div class="text-center mb-5">
-        <h2>Frequently Asked Questions</h2>
-        <p>Find answers to common questions about our watches and services.</p>
-    </div>
-    <div class="accordion" id="faqAccordion">
-        @foreach($categories as $category)
-            <div class="mb-4">
-                <h3>{{ $category->name }}</h3>
-                @foreach($category->faqs as $faq)
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="faqHeading{{ $faq->id }}">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse{{ $faq->id }}" aria-expanded="false" aria-controls="faqCollapse{{ $faq->id }}">
-                                {{ $faq->question }}
-                            </button>
-                        </h2>
-                        <div id="faqCollapse{{ $faq->id }}" class="accordion-collapse collapse" aria-labelledby="faqHeading{{ $faq->id }}" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                {{ $faq->answer }}
-                            </div>
+<div class="text-center mb-5">
+    <h2>Frequently Asked Questions</h2>
+    <p>Find answers to common questions about our watches and services.</p>
+</div>
+<div class="accordion" id="faqAccordion">
+    @foreach($categories as $category)
+        <div class="mb-4">
+            <h3>{{ $category->name }}</h3>
+            @foreach($category->faqs as $faq)
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faqHeading{{ $faq->id }}">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse{{ $faq->id }}" aria-expanded="false" aria-controls="faqCollapse{{ $faq->id }}">
+                            {{ $faq->question }}
+                        </button>
+                    </h2>
+                    <div id="faqCollapse{{ $faq->id }}" class="accordion-collapse collapse" aria-labelledby="faqHeading{{ $faq->id }}" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            {{ $faq->answer }}
                         </div>
                     </div>
-                @endforeach
-            </div>
-        @endforeach
-    </div>
+                </div>
+            @endforeach
+        </div>
+    @endforeach
+</div>
+
+
 </div>
 <div class="d-flex justify-content-center mt-5">
     <form action="{{ route('suggested-faqs.store') }}" method="POST" class="card p-4 shadow-sm" style="width: 50%; max-width: 600px;">
@@ -344,11 +348,7 @@
 
 
 
-<div class="cta">
-    <h2>Become an Insider!</h2>
-    <p>Receive exclusive offers and news straight to your inbox.</p>
-    <a href="http://127.0.0.1:8000/register" class="btn btn-light btn-lg">Sign Up</a>
-</div>
+
 
 <footer>
     <p>&copy; 2024 Luxury Watches. All rights reserved.</p>
